@@ -9,10 +9,7 @@ import io
 app = Flask(__name__)
 
 # Register fonts that support multilingual text
-pdfmetrics.registerFont(TTFont('DejaVuSans', 'DejaVuSans.ttf'))  # For Kazakh & Russian
 pdfmetrics.registerFont(TTFont('NotoSansKR', 'NotoSansKR-Regular.ttf'))  # For Korean
-pdfmetrics.registerFont(TTFont('dvs', 'DejaVuSerif.ttf'))
-pdfmetrics.registerFont(TTFont('dvsb', 'DejaVuSerif-Bold.ttf'))
 pdfmetrics.registerFont(TTFont('tnr', 'tnr.ttf'))
 pdfmetrics.registerFont(TTFont('tnrb', 'tnrb.ttf'))
 pdfmetrics.registerFont(TTFont('tnrbi', 'tnrbi.ttf'))
