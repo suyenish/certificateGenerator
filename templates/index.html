@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate PDF</title>
+</head>
+<body>
+    <h2>Enter Your Information</h2>
+    <form method="post">
+        <label>Number of certificate<label>
+        <input type="text" name="number_cer" required><br>
+
+        <label>Date of Certificate Issue:</label>
+        <input type="date" name="doc" required><br>
+
+        <label>Full Name:</label>
+        <input type="text" name="full_name" required><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required><br>
+
+        <label>Gender:</label>
+        <select name="gender">
+            <option value="Mr.">Mr.</option>
+            <option value="Mrs.">Mrs.</option>
+        </select><br>
+
+        <label>Passport Number:</label>
+        <input type="text" name="passport_number" required><br>
+
+        <label>Driving License Number:</label>
+        <input type="text" name="license_number" required><br>
+
+        <label>Date of Issue:</label>
+        <input type="date" name="doi" required><br>
+
+        <label>Date of Expiry:</label>
+        <input type="date" name="doe" required><br>
+
+        <label>Allowed Vehicle Categories:</label><br>
+        <input type="checkbox" name="vehicle_categories" value="A1"> A1
+        <input type="checkbox" name="vehicle_categories" value="A"> A
+        <input type="checkbox" name="vehicle_categories" value="B1"> B1
+        <input type="checkbox" name="vehicle_categories" value="B"> B
+        <input type="checkbox" name="vehicle_categories" value="C1"> C1
+        <input type="checkbox" name="vehicle_categories" value="C"> C
+        <input type="checkbox" name="vehicle_categories" value="D1"> D1
+        <input type="checkbox" name="vehicle_categories" value="D"> D
+        <input type="checkbox" name="vehicle_categories" value="BE"> BE
+        <input type="checkbox" name="vehicle_categories" value="C1E"> C1E
+        <input type="checkbox" name="vehicle_categories" value="CE"> CE
+        <input type="checkbox" name="vehicle_categories" value="D1E"> D1E
+        <input type="checkbox" name="vehicle_categories" value="DE"> DE
+        <br>
+
+        <label>Choose Consul to Sign:</label>
+        <select name="consul">
+            <option value="Osman Dias">Osman Dias</option>
+            <option value="Aslan Askar">Aslan Askar</option>
+        </select><br>
+
+        <button type="submit">Generate PDF</button>
+    </form>
+</body>
+</html>
