@@ -6,6 +6,7 @@ from reportlab.pdfbase import pdfmetrics
 from datetime import datetime
 import io
 import os
+from io import BytesIO
 
 app = Flask(__name__)
 
@@ -89,6 +90,19 @@ def index():
                          mimetype="application/pdf")
 
     return render_template("index.html")
+
+
+def download_pdf():
+    # Create PDF in memory
+    pdf_buffer = BytesIO()
+    pdf = canvas.Canvas(pdf_buffer)
+    pdf.drawString(100, 750, "Hello, this is your PDF!")
+    pdf.showPage()
+    pdf.save()
+
+    pdf_buffer.seek(0)  # Move to start of the buffer
+
+    return send_file(pdf_buffer, as_attachment=True, download_name="generated.pdf", mimetype="application/pdf")
 
 def home():
     return render_template("index.html")
