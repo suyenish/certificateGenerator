@@ -11,11 +11,11 @@ from io import BytesIO
 app = Flask(__name__)
 
 # Register fonts that support multilingual text
-pdfmetrics.registerFont(TTFont('NotoSansKR', 'NotoSansKR-Regular.ttf'))  # For Korean
-pdfmetrics.registerFont(TTFont('tnr', 'tnr.ttf'))
-pdfmetrics.registerFont(TTFont('tnrb', 'tnrb.ttf'))
-pdfmetrics.registerFont(TTFont('tnrbi', 'tnrbi.ttf'))
-pdfmetrics.registerFont(TTFont('tnri', 'tnri.ttf'))
+pdfmetrics.registerFont(TTFont('NotoSansKR', 'static/NotoSansKR-Regular.ttf'))  # For Korean
+pdfmetrics.registerFont(TTFont('tnr', 'static/tnr.ttf'))
+pdfmetrics.registerFont(TTFont('tnrb', 'static/tnrb.ttf'))
+pdfmetrics.registerFont(TTFont('tnrbi', 'static/tnrbi.ttf'))
+pdfmetrics.registerFont(TTFont('tnri', 'static/tnri.ttf'))
 
 def generate_pdf(data):
     buffer = io.BytesIO()
@@ -23,7 +23,7 @@ def generate_pdf(data):
 
     pdf.setTitle(f"{data['number_cer']}")
     # Set up fonts
-    image = "header.png"
+    image = "static/header.png"
     pdf.drawImage(image, 50, 650, width=495, height=150)
 
     # Certificate info
@@ -90,19 +90,6 @@ def index():
                          mimetype="application/pdf")
 
     return render_template("index.html")
-
-
-def download_pdf():
-    # Create PDF in memory
-    pdf_buffer = BytesIO()
-    pdf = canvas.Canvas(pdf_buffer)
-    pdf.drawString(100, 750, "Hello, this is your PDF!")
-    pdf.showPage()
-    pdf.save()
-
-    pdf_buffer.seek(0)  # Move to start of the buffer
-
-    return send_file(pdf_buffer, as_attachment=True, download_name="generated.pdf", mimetype="application/pdf")
 
 def home():
     return render_template("index.html")
