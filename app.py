@@ -15,8 +15,6 @@ pdfmetrics.registerFont(TTFont('tnrb', 'tnrb.ttf'))
 pdfmetrics.registerFont(TTFont('tnrbi', 'tnrbi.ttf'))
 pdfmetrics.registerFont(TTFont('tnri', 'tnri.ttf'))
 
-
-
 def generate_pdf(data):
     buffer = io.BytesIO()
     pdf = canvas.Canvas(buffer, pagesize=A4)
@@ -37,11 +35,6 @@ def generate_pdf(data):
     pdf.drawString(50, 575, "To whom it may concern")
 
     # Main
-    #     f"The Consular section of the Consulate General of the Republic of Kazakhstan in Busan "
-    #     f"hereby certifies that according to the Driver’s license number: {data['license_number']}, "
-    #     f"citizen of the Republic of Kazakhstan {data['gender']} {data['full_name']} (Date of birth: {data['dob']}), "
-    #     f"passport number: {data['passport_number']} is allowed to drive motor vehicles under "
-    #     f"the category {data['vehicle_categories']}."
     pdf.setFont("tnr", 14)
     pdf.drawString(50, 520, "The Consular section of the Consulate General of the Republic of Kazakhstan")
     pdf.drawString(50, 500, "in Busan hereby certifies that the following individual holds a valid driver's license")
@@ -96,6 +89,8 @@ def index():
 
     return render_template("index.html")
 
+def home():
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
